@@ -3,6 +3,8 @@ A guide to set up private Bitwarden password manager for free using Vaultwarden,
 
 *This guide is functional but still work in progress and more info/details will be added in the the future, for any questions see [FAQ](#faq) section.*
 
+*UPDATE: This method does not work with the native Bitwarden iOS/iPadOS app due to SSL Certificate issues, trying to find alternative solutions at the moment.*
+
 ![Example output](success.png)
 
 ## Table of Contents
