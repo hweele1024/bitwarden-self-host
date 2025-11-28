@@ -1,0 +1,31 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=true # Enable for signing up new accounts
+      - DOMAIN=https://YOUR-HOSTNAME
+    volumes:
+      - ./data:/data
+    networks:
+      - vaultwarden-network
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy-data:/data
+      - ./caddy-config:/config
+    networks:
+      - vaultwarden-network
+
+networks:
+  vaultwarden-network:
+    driver: bridge
